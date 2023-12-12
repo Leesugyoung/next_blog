@@ -1,16 +1,12 @@
-"use client";
-
-import { usePathname, useSearchParams } from "next/navigation";
-
-export default function Read(props: any) {
-  const pathname = usePathname();
-
-  console.log(pathname);
+export default async function Read(props: any) {
+  const resp = await fetch(`http://localhost:9999/topics/${props.params.id}`);
+  console.log(resp);
+  const topic = await resp.json();
 
   return (
     <>
-      <h2>Read</h2>
-      {/*  read/1 , read/2 */}/
+      <h2>{topic.title}</h2>
+      {topic.body}
     </>
   );
 }

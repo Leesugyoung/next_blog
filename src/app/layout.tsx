@@ -1,13 +1,27 @@
+import "./globals.css";
+import Link from "next/link";
+
 export const metadata = {
   title: "Leesu Blog",
   description: "Leesu's Bloog with Next.js",
 };
 
-export default function RootLayout({
+export interface Topic {
+  id: number;
+  title: string;
+  body: string;
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const resp = await fetch(`http://localhost:9999/topics`, {
+    cache: "no-store",
+  });
+  const topics: Topic[] = await resp.json();
+
   return (
     <html>
       <body>
@@ -15,12 +29,13 @@ export default function RootLayout({
           <a href="/">WEB</a>
         </h1>
         <ol>
-          <li>
-            <a href="/read/1">html</a>
-          </li>
-          <li>
-            <a href="/read/2">css</a>
-          </li>
+          {topics.map(topic => {
+            return (
+              <li key={topic.id}>
+                <Link href={`/read/${topic.id}`}>{topic.title}</Link>
+              </li>
+            );
+          })}
         </ol>
         {children}
         <ul>
