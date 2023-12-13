@@ -1,3 +1,4 @@
+import { Contorl } from "./Contorl";
 import "./globals.css";
 import Link from "next/link";
 
@@ -17,7 +18,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const resp = await fetch(`http://localhost:9999/topics`, {
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`, {
     cache: "no-store",
   });
   const topics: Topic[] = await resp.json();
@@ -38,17 +39,7 @@ export default async function RootLayout({
           })}
         </ol>
         {children}
-        <ul>
-          <li>
-            <a href="/create">Create</a>
-          </li>
-          <li>
-            <a href="/update/1">Update</a>
-          </li>
-          <li>
-            <input type="button" value="delete" />
-          </li>
-        </ul>
+        <Contorl />
       </body>
     </html>
   );
