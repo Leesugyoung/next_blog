@@ -1,10 +1,10 @@
 import Navigation from "@/components/Navigation";
 
-export default function Home() {
+export default function AboutUsPage() {
   return (
     <div>
       <Navigation />
-      <h1>Home@</h1>
+      <h1>ABOUT US</h1>
     </div>
   );
 }
