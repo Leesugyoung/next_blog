@@ -1,5 +1,9 @@
 import Navigation from "@/components/Navigation";
 
+export const metadata = {
+  title: "About us",
+};
+
 export default function AboutUsPage() {
   return (
     <div>
