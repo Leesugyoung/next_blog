@@ -1,6 +1,7 @@
 import { APIURL } from "@/app/(home)/page";
 
 async function getMovies(id: String) {
+  // throw new Error("야 오류남");
   return await fetch(`${APIURL}/${id}`).then(res => res.json());
 }
 
