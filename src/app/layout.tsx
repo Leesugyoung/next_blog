@@ -1,5 +1,5 @@
-import Navigation from "@/components/Navigation";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
 import { Metadata } from "next";
 
 // metadata 는 seraver component 에서만, page 에서만, layout 에서만 사용가능
