@@ -19,7 +19,7 @@ export default function Movie({ title, id, poster_path }: IMovie) {
         height={300}
         onClick={onClick}
       />
-      <Link href={`/movies/${id}`}>
+      <Link prefetch href={`/movies/${id}`}>
         <p className="font-semibold ...">{title}</p>
       </Link>
     </div>
