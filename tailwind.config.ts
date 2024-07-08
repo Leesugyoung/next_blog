@@ -21,6 +21,7 @@ const config: Config = {
       },
       spacing: {
         "custom-bottom": "26.5rem",
+        "444": "40vh",
       },
     },
   },
