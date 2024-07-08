@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import Navigation from "../components/navigation/Navigation";
 import "./globals.css";
 import { Metadata } from "next";
@@ -21,12 +22,8 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <Navigation />
-        <div
-          className="flex justify-center items-center"
-          style={{ marginTop: "100px" }}
-        >
-          {children}
-        </div>
+        <div className="flex justify-center items-center">{children}</div>
+        <Footer />
       </body>
     </html>
   );
